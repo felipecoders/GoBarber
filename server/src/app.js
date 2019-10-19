@@ -1,7 +1,9 @@
 import express from 'express';
+import path from 'path';
 import Youch from 'youch';
 import * as Sentry from '@sentry/node';
 import 'express-async-errors';
+
 import routes from './routes';
 import sentryConfig from './config/sentry';
 
@@ -22,6 +24,11 @@ class App {
     this.server.use(Sentry.Handlers.requestHandler());
 
     this.server.use(express.json());
+    this.server.use(
+      '/files',
+      express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))
+    );
+
     this.server.use(Sentry.Handlers.errorHandler());
   }
 
