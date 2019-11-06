@@ -24,7 +24,7 @@ sudo docker run --name your_db_name -p 6379:6379 -d -t redis:alpine
 ## Installation
 
 - Clone this with `git clone https://github.com/felipecoders/gobarber.git`;
-- Run `yarn` ou `npm` to install node dependencies.
+- Run `yarn` or `npm` to install node dependencies.
 - Configure `.env` file like `.env.example` using your own credentials;
 - Run migrations: `yarn sequelize db:migration` or `npx sequelize db:migration`;
 - Run `yarn dev` or `npm run dev` to run server and `yarn queue` or `npm run queue` to run Bee-Queue to manager email process in background.
